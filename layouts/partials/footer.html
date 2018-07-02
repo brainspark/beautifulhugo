@@ -26,6 +26,13 @@
           </li>
           {{ end }}
         </ul>
+        {{ if .Site.Params.footerLinks }}
+        <p class="credits copyright">
+          {{ range $name, $link := .Site.Params.footerLinks }}
+            <a href="{{$name}}">{{$link}}</a> &nbsp;
+          {{ end }}
+        </p>
+        {{ end }}
         <p class="credits copyright text-muted">
           {{ if .Site.Author.name }}
             {{ if .Site.Author.website }}

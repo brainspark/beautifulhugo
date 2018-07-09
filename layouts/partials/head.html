@@ -2,27 +2,28 @@
   {{- range $key, $value := .Data.Terms.ByCount }}
     {{- $.Scratch.Add "most_used" (slice $value.Name) }}
   {{- end }}
+<<<<<<< HEAD
   {{- if not ($.Scratch.Get "most_used") }}
-    {{- $description := printf "A full overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular | truncate 180 }}
+    {{- $description := printf ( i18n "taxonomyTermDescriptionEmpty" ) .Data.Plural .Data.Singular | truncate 180 }}
     {{- $.Scratch.Set "Description" $description }}
   {{- else }}
-    {{- $description := printf "A full overview of all pages with %s, ordered by %s, such as: %s" .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 180 }}
+    {{- $description := printf ( i18n "taxonomyTermDescription" ) .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 180 }}
     {{- $.Scratch.Set "Description" $description }}
   {{- end }}
 
-  {{- $title := printf "Overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular }}
+  {{- $title := printf ( i18n "taxonomyTermTitle" ) .Data.Plural .Data.Singular }}
   {{- $.Scratch.Set "Title" $title }}
 {{- else if eq .Kind "taxonomy" }}
-  {{- $description := printf "Overview of all pages with the %s #%s, such as: %s" .Data.Singular $.Title ( index .Pages 0).Title | truncate 160 }}
+  {{- $description := printf ( i18n "taxonomyDescription" ) .Data.Singular $.Title ( index .Pages 0).Title | truncate 160 }}
   {{- $.Scratch.Set "Description" $description }}
 
-  {{- $title := printf "Overview of all pages with the %s #%s" .Data.Singular $.Title }}
+  {{- $title := printf ( i18n "taxonomyTitle" ) .Data.Singular $.Title }}
   {{- $.Scratch.Set "Title" $title }}
 {{- else if eq .Kind "section" }}
-  {{- $description := printf "Overview of all %s, such as: %s" $.Title ( index .Pages 0).Title | truncate 160 }}
+  {{- $description := printf ( i18n "sectionDescription" ) $.Title ( index .Pages 0).Title | truncate 160 }}
   {{- $.Scratch.Set "Description" $description }}
 
-  {{- $title := printf "Overview of all %s" $.Title }}
+  {{- $title := printf ( i18n "sectionTitle" ) $.Title }}
   {{- $.Scratch.Set "Title" $title }}
 {{- else if eq .Kind "home" }}
   {{- $.Scratch.Set "Description" .Site.Params.description | default "The main page" }}

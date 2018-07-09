@@ -1,3 +1,19 @@
+# Head
+- id: taxonomyTermDescription
+  translation: "A full overview of all pages with %s, ordered by %s, such as: %s"
+- id: taxonomyTermDescriptionEmpty
+  translation: "A full overview of all pages with %s, ordered by %s"
+- id: taxonomyTermTitle
+  translation: "Overview of all pages with %s, ordered by %s"
+- id: taxonomyDescription
+  translation: "Overview of all pages with the %s #%s, such as: %s"
+- id: taxonomyTitle
+  translation: "Overview of all pages with the %s #%s"
+- id: sectionDescription
+  translation: "Overview of all %s, such as: %s"
+- id: sectionTitle
+  translation: "Overview of all %s"
+
 # Content
 - id: dateFormat
   translation: "January 2, 2006"

@@ -1,4 +1,6 @@
 # Head
+- id: listTerminator
+  translation: ", and "
 - id: taxonomyTermDescription
   translation: "A full overview of all pages with %s, ordered by %s, such as: %s"
 - id: taxonomyTermDescriptionEmpty

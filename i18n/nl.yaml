@@ -1,18 +1,20 @@
 # Head
+- id: listTerminator
+  translation: ", en "
 - id: taxonomyTermDescription
   translation: "Een volledig overzicht van alle pagina's met %s, gesorteerd op %s, zoals: %s"
 - id: taxonomyTermDescriptionEmpty
   translation: "Een volledig overzicht van alle pagina's met %s, gesorteerd op %s"
 - id: taxonomyTermTitle
-  translation: "Het overzicht van alle pagina's met %s, gesorteerd op %s"
+  translation: "Overzicht van alle pagina's met %s, gesorteerd op %s"
 - id: taxonomyDescription
   translation: "Een volledig overzicht van alle pagina's met de %s #%s, zoals: %s"
 - id: taxonomyTitle
-  translation: "Het overzicht van alle pagina's met de %s #%s"
+  translation: "Overzicht van alle pagina's met de %s #%s"
 - id: sectionDescription
   translation: "Een volledig overzicht van alle %s, zoals: %s"
 - id: sectionTitle
-  translation: "Het overzicht van alle %s"
+  translation: "Overzicht van alle %s"
 
 # Content
 - id: dateFormat

@@ -45,7 +45,7 @@
 {{- with ($.Scratch.Get "Title") }}
   <title>{{ print . " - " $.Site.Title | truncate 60 }}</title>
   <meta property="og:title" content="{{ . }}" />
-  <meta name="twitter:title" content="{{ . | truncate 70 }}" />
+  <meta name="twitter:title" content="{{ . | truncate 55 }}" />
 {{- end }}
 {{- with ($.Scratch.Get "Description") }}
   <meta name="description" content="{{ . | truncate 300 }}">

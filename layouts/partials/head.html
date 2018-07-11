@@ -50,7 +50,7 @@
 {{- with ($.Scratch.Get "Description") }}
   <meta name="description" content="{{ . | truncate 300 }}">
   <meta property="og:description" content="{{ . }}">
-  <meta name="twitter:description" content="{{ . | truncate 200 }}">
+  <meta name="twitter:description" content="{{ . | truncate 130 }}">
 {{- end }}
 {{- with .Site.Author.name }}
   <meta name="author" content="{{ . }}"/>

@@ -48,7 +48,7 @@
   <meta name="twitter:title" content="{{ . | truncate 55 }}" />
 {{- end }}
 {{- with ($.Scratch.Get "Description") }}
-  <meta name="description" content="{{ . | truncate 300 }}">
+  <meta name="description" content="{{ . | truncate 160 }}">
   <meta property="og:description" content="{{ . }}">
   <meta name="twitter:description" content="{{ . | truncate 130 }}">
 {{- end }}

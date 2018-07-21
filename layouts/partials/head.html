@@ -3,10 +3,10 @@
     {{- $.Scratch.Add "most_used" (slice $value.Name) }}
   {{- end }}
   {{- if not ($.Scratch.Get "most_used") }}
-    {{- $description := printf ( i18n "taxonomyTermDescriptionEmpty" ) .Data.Plural .Data.Singular | truncate 180 }}
+    {{- $description := printf ( i18n "taxonomyTermDescriptionEmpty" ) .Data.Plural .Data.Singular | truncate 160 }}
     {{- $.Scratch.Set "Description" $description }}
   {{- else }}
-    {{- $description := printf ( i18n "taxonomyTermDescription" ) .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 180 }}
+    {{- $description := printf ( i18n "taxonomyTermDescription" ) .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 160 }}
     {{- $.Scratch.Set "Description" $description }}
   {{- end }}
 
@@ -16,7 +16,7 @@
   {{- range $key, $value := .Pages }}
     {{- $.Scratch.Add "list" ( slice ( print "\"" $value.Title "\"" ) ) }}
   {{- end }}
-  {{- $description := printf ( i18n "taxonomyDescription" ) .Data.Singular .Title ( delimit ( $.Scratch.Get "list" ) ", " ( i18n "listTerminator" ) ) }}
+  {{- $description := printf ( i18n "taxonomyDescription" ) .Data.Singular .Title ( delimit ( $.Scratch.Get "list" ) ", " ( i18n "listTerminator" ) ) | truncate 160 }}
   {{- $.Scratch.Set "Description" $description }}
 
   {{- $title := printf ( i18n "taxonomyTitle" ) .Data.Singular $.Title }}
@@ -25,7 +25,7 @@
   {{- range $key, $value := .Pages }}
     {{- $.Scratch.Add "list" ( slice ( print "\"" $value.Title "\"" ) ) }}
   {{- end }}
-  {{- $description := printf ( i18n "sectionDescription" ) $.Title ( delimit ( $.Scratch.Get "list" ) ", " ( i18n "listTerminator" ) ) }}
+  {{- $description := printf ( i18n "sectionDescription" ) $.Title ( delimit ( $.Scratch.Get "list" ) ", " ( i18n "listTerminator" ) ) | truncate 160 }}
   {{- $.Scratch.Set "Description" $description }}
 
   {{- $title := printf ( i18n "sectionTitle" ) $.Title }}
@@ -48,7 +48,7 @@
   <meta name="twitter:title" content="{{ . | truncate 55 }}" />
 {{- end }}
 {{- with ($.Scratch.Get "Description") }}
-  <meta name="description" content="{{ . | truncate 160 }}">
+  <meta name="description" content="{{ . }}">
   <meta property="og:description" content="{{ . }}">
   <meta name="twitter:description" content="{{ . | truncate 130 }}">
 {{- end }}

@@ -43,7 +43,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <!-- Site Title, Description, Author, and Favicon -->
 {{- with ($.Scratch.Get "Title") }}
-  <title>{{ print . " - " $.Site.Title | truncate 60 }}</title>
+  {{ $roomForFirstTitleWord := gt ( sub 60 (len .) ) ( add 3 ( len (index (split $.Site.Title " ") 0 ) ) ) }}
+  <title>{{ print . }}{{ if ( and ( eq $roomForFirstTitleWord true ) ( and ( ne $.Kind "home" ) ($.Site.Params.showTitle | default true ) ) ) }}{{ print " - " $.Site.Title | truncate ( sub 60 (len . ) ) }}{{ end }}</title>
   <meta property="og:title" content="{{ . }}" />
   <meta name="twitter:title" content="{{ . | truncate 55 }}" />
 {{- end }}

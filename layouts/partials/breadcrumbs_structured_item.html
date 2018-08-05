@@ -1,0 +1,16 @@
+{{- $url := .url }}
+{{- $caption := .caption }}
+{{- $image := .image }}
+{{- $level := .level }}
+{{- $final := .final }}
+
+      {
+        "@type": "ListItem",
+        "position": {{ $level }},
+        "item": {
+          "@id": "{{ $url | absURL }}",
+          "name": "{{ $caption }}"{{- if $image }},
+          "image": "{{ $image | absURL }}"
+          {{- end }}
+        }
+      }{{- if eq $final false }},{{ end }}

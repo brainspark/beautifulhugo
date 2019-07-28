@@ -5,7 +5,7 @@
 {{- $footer := print "breadcrumbs_" $output_type "_footer.html" }}
 
 {{- with $ctx }}
-  {{- $path := split .URL "/" }}
+  {{- $path := split .Permalink "/" }}
 
   {{ partial $header }}
 
@@ -18,22 +18,22 @@
     {{/* Find the taxonomyTerm and render */}}
 
     {{- $taxonomyTerm := .Site.GetPage "taxonomyTerm" .Data.Plural }}
-    {{ partial $item (dict "caption" $taxonomyTerm.Title "url" $taxonomyTerm.URL "level" 1 "image" "" "final" false) }}
+    {{ partial $item (dict "caption" $taxonomyTerm.Title "url" $taxonomyTerm.Permalink "level" 1 "image" "" "final" false) }}
 
     {{/* Render the taxonomy item */}}
 
-    {{ partial $item (dict "caption" .Title "url" .URL "level" 2 "image" "" "final" true) }}
+    {{ partial $item (dict "caption" .Title "url" .Permalink "level" 2 "image" "" "final" true) }}
 
   {{- else if or ( eq .Kind "section" ) ( eq .Kind "page" ) }}
       	
     {{/* Display all relevant section elements */}}
 
-    {{- partial "breadcrumbs_recursive.html" (dict "output_type" $output_type "sections" .Site.Home.Sections "level" 1 "path" $path "dir" .URL ) }}
+    {{- partial "breadcrumbs_recursive.html" (dict "output_type" $output_type "sections" .Site.Home.Sections "level" 1 "path" $path "dir" .Permalink ) }}
       
     {{- if eq .Kind "page" }}
 
-      {{- $aux := split .URL "/" }}
-      {{ partial $item (dict "caption" .Title "url" .URL "level" (sub (len $aux) 2 ) "image" .Params.share_img "final" true ) }}
+      {{- $aux := split .Permalink "/" }}
+      {{ partial $item (dict "caption" .Title "url" .Permalink "level" (sub (len $aux) 2 ) "image" .Params.share_img "final" true ) }}
 
     {{- end }}
   {{- end }}  

@@ -13,6 +13,7 @@
   {{- $title := printf ( i18n "taxonomyTermTitle" ) .Data.Plural .Data.Singular }}
   {{- $.Scratch.Set "Title" $title }}
 {{- else if eq .Kind "taxonomy" }}
+  {{- $.Scratch.Set "list" ( slice "" ) }}
   {{- range $key, $value := .Pages }}
     {{- $.Scratch.Add "list" ( slice ( print "\"" $value.Title "\"" ) ) }}
   {{- end }}
